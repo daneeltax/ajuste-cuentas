@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ajuste las cuentas del Estado</title>
+<meta name="description" content="Recorte 46,4 billones del presupuesto de 2026 sin subir impuestos. ¿Usted qué recortaría?">
+<meta property="og:title" content="Ajuste las cuentas del Estado">
+<meta property="og:description" content="Recorte 46,4 billones del presupuesto de 2026 sin subir impuestos. ¿Usted qué recortaría?">
+<meta property="og:image" content="https://ajuste.luiscarlosreyes.com/og.png">
+<meta property="og:url" content="https://ajuste.luiscarlosreyes.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script>window.ENDPOINT = 'https://script.google.com/macros/s/AKfycbyjGiBO3v0qCIi7rYBE2uMHlzYrkU_nrGCss_M4MYRMJZGIXo8HrGmgyXBZMMRc61TXTA/exec';</script>
+
+<style>
+:root{--ink:#111;--red:#C8232C;--gray:#bbb;--mid:#666;--bar:#E8E7E0;
+ --G:#2F6DB5;--L:#2E8B57;--E:#E08A1E;--C:#C8232C;--A:#7B4FA6;--K:#6B5B4B}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff}
+.wrap{max-width:1040px;margin:0 auto;padding:24px 18px 60px}
+h1{font-weight:400;text-align:center;font-size:42px;margin:6px 0 6px}
+.pdf{text-align:center;font:14px "Helvetica Neue",Arial,sans-serif;margin-bottom:20px}.pdf a{color:var(--red)}
+#res{margin-top:26px;font-family:"Helvetica Neue",Arial,sans-serif;display:none}#res h3{font-size:22px;margin:0 0 6px}
+#res table{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px}#res td,#res th{border-bottom:1px solid #e3e3e3;padding:5px 6px;text-align:left;vertical-align:top}#res th{font-size:11px;text-transform:uppercase;color:var(--mid)}#res td.n{text-align:right;white-space:nowrap}#res tr.out td{color:#aaa}
+#bigres{display:block;margin-top:8px;max-width:100%}
+#share{display:none;margin-top:30px;border-top:2px solid var(--ink);padding-top:14px;font-family:"Helvetica Neue",Arial,sans-serif}
+#share h3{font-size:22px;margin:0 0 6px}
+.sbtns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.sbtns button{font:700 14px "Helvetica Neue",Arial,sans-serif;color:#fff;border:0;padding:10px 14px;border-radius:4px;cursor:pointer}
+#shmsg{font-size:14px;line-height:1.45;margin:6px 0 10px;max-width:760px}
+#shimg{max-width:100%;max-height:640px;border:1px solid #ccc;display:none}
+.steps{display:grid;grid-template-columns:1fr;gap:10px;font-size:16px;line-height:1.45}
+.step{display:flex;gap:12px}
+.num{color:var(--red);font-size:56px;line-height:.85;min-width:34px}
+.sans{font-family:"Helvetica Neue",Arial,sans-serif}
+b.s{font-family:"Helvetica Neue",Arial,sans-serif}
+#panel{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #ccc;padding:10px 0 8px;margin-top:16px}
+.ptop{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;font-family:"Helvetica Neue",Arial,sans-serif}
+#tot{font-size:22px;font-weight:700}
+#status{font-size:14px;color:var(--mid)}
+#big{display:block;margin-top:6px;max-width:100%}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font:12px "Helvetica Neue",Arial,sans-serif;margin-top:6px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.sw{width:11px;height:11px;display:inline-block;border:1px solid rgba(0,0,0,.25)}
+h2{font-family:"Helvetica Neue",Arial,sans-serif;text-align:center;font-size:26px;margin:28px 0 2px}
+.sub{text-align:center;font:14px "Helvetica Neue",Arial,sans-serif;color:var(--mid);margin-bottom:14px}
+#menu{columns:2 460px;column-gap:28px}
+.area{break-inside:avoid-column}
+.ah{background:var(--bar);font:700 12.5px "Helvetica Neue",Arial,sans-serif;padding:6px 8px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.02em}
+.it{break-inside:avoid;padding:8px 0 10px;border-bottom:1px solid #e3e3e3;font-family:"Helvetica Neue",Arial,sans-serif}
+.it .t{font-size:14px;line-height:1.3}
+.it .t b{font-size:15px}
+.req{font-size:10.5px;color:var(--mid);text-transform:uppercase;margin-top:2px;letter-spacing:.02em}
+.ctl{display:flex;align-items:center;gap:10px;margin-top:6px}
+.ctl input[type=range]{flex:1;accent-color:var(--red)}
+.cut{font-size:12.5px;min-width:150px;text-align:right;color:var(--mid)}
+.cut.on{color:var(--ink);font-weight:700}
+.it canvas{display:block;margin-top:6px}
+.quick{display:flex;gap:4px;margin-top:4px}
+.quick button{font:11px "Helvetica Neue",Arial,sans-serif;border:1px solid #bbb;background:#fff;padding:2px 7px;cursor:pointer;border-radius:2px}
+.quick button:hover{background:#f2f2f2}
+.note{background:#F3F2EC;font:12.5px/1.45 "Helvetica Neue",Arial,sans-serif;padding:10px 12px;margin:8px 0 4px;break-inside:avoid}
+#send{border-top:2px solid var(--ink);margin-top:34px;padding-top:14px;font-family:"Helvetica Neue",Arial,sans-serif}
+#send h3{font-size:22px;margin:0 0 8px}
+.byreq{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;font-size:14px;max-width:560px;margin:10px 0 16px}
+.byreq .bar{height:12px}
+label{display:block;font-size:13px;margin:8px 0 3px}
+input[type=text],textarea{width:100%;max-width:560px;font:14px "Helvetica Neue",Arial,sans-serif;padding:7px;border:1px solid #aaa}
+textarea{height:80px}
+#btn{margin-top:12px;font:700 16px "Helvetica Neue",Arial,sans-serif;background:var(--red);color:#fff;border:0;padding:11px 22px;cursor:pointer}
+#btn:disabled{background:#999;cursor:default}
+#btnsh{margin-top:12px;margin-left:8px;font:700 16px "Helvetica Neue",Arial,sans-serif;background:#fff;color:var(--red);border:2px solid var(--red);padding:9px 20px;cursor:pointer}
+#msg{margin-top:10px;font-size:14px}
+.notes{font:12.5px/1.5 "Helvetica Neue",Arial,sans-serif;columns:2 420px;column-gap:28px;margin-top:30px;border-top:1px solid #999;padding-top:10px}
+.notes p{margin:0 0 9px;break-inside:avoid}
+.notes a{color:var(--red)}
+@media (max-width:640px){h1{font-size:30px}.num{font-size:40px}.cut{min-width:110px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Ajuste las cuentas del Estado</h1>
+<div class="pdf"><a href="https://drive.google.com/file/d/1_utI_68jBfNaqp8DEdPSDxlL-84JNJc2/view" target="_blank" rel="noopener">Descargar la versión en PDF para imprimir</a></div>
+<div class="steps">
+ <div class="step"><div class="num">1</div><div>Intente recortar <b class="s">46,4 billones</b> del presupuesto de 2026. ¿Por qué esa cifra? Es el ajuste que el Gobierno estima necesario (2,35 % del PIB), entre impuestos y menor gasto. Aquí debe lograrlo <i>solo con recortes</i>. Cada casilla (□) de la cuadrícula grande representa <b class="s">0,1 billones</b> (100.000 millones). Su tarea es llenar esas casillas escogiendo del menú.</div></div>
+ <div class="step"><div class="num">2</div><div>Abajo está el menú para tapar este hueco: todo el presupuesto de 2026, rubro por rubro. Puede recortar un rubro completo o solo una parte: mueva el control de cada rubro. Cada rubro dice <b class="s">qué se necesita para recortarlo</b>: un decreto, una ley ordinaria o una reforma constitucional, entre otros.</div></div>
+ <div class="step"><div class="num">3</div><div>La cuadrícula se llena sola, con el color de lo que exige cada recorte. Cuando termine, envíe su plan al final de la página y vea el plan consolidado de todos los que han participado.</div></div>
+</div>
+
+<div id="panel">
+ <div class="ptop"><span id="tot">0,0 de 46,4 billones</span><span id="status">Le faltan 46,4 billones.</span></div>
+ <canvas id="big"></canvas>
+ <div class="legend" id="legend"></div>
+</div>
+
+<h2>El menú: todo el presupuesto</h2>
+<div class="sub" id="menusub"></div>
+<div id="menu"></div>
+
+<div id="send">
+ <h3>Su plan</h3>
+ <div id="sumtxt"></div>
+ <div class="byreq" id="byreq"></div>
+ <button id="btn">Ver los resultados de los demás</button>
+ <button id="btnsh" class="btn2">Compartir mis resultados</button>
+ <div id="msg"></div>
+ <div id="res"></div>
+ <div id="share">
+  <h3>Comparta sus resultados</h3>
+  <div style="font-size:14px;color:#666">Escoja la red: la imagen se genera en el tamaño ideal para cada una.</div>
+  <div class="sbtns">
+   <button data-n="wa" style="background:#25D366">WhatsApp</button>
+   <button data-n="ig" style="background:#C13584">Instagram (publicación)</button>
+   <button data-n="st" style="background:#833AB4">Historias (Instagram y WhatsApp)</button>
+   <button data-n="x" style="background:#000">X</button>
+   <button data-n="fb" style="background:#1877F2">Facebook</button>
+   <button data-n="li" style="background:#0A66C2">LinkedIn</button>
+   <button data-n="dl" style="background:#555">Solo descargar la imagen</button>
+  </div>
+  <div id="shmsg"></div>
+  <img id="shimg" alt="Mis resultados">
+ </div>
+</div>
+
+<div class="notes" id="notes"></div>
+</div>
+<script>
+var DATA = {"items": [{"id": "r01", "area": "SALUD", "name": "Aseguramiento en salud: UPC de los regímenes contributivo y subsidiado (ADRES)", "v": 51.47, "req": "ley estatutaria", "mix": {"E": 0.995, "G": 0.005}}, {"id": "r02", "area": "SALUD", "name": "Giro a departamentos y municipios para el régimen subsidiado y hospitales públicos (SGP)", "v": 18.66, "req": "reforma constitucional", "mix": {"C": 0.995, "G": 0.005}}, {"id": "r03", "area": "SALUD", "name": "Salud de militares y policías, incluido el Hospital Militar", "v": 5.04, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r04", "area": "SALUD", "name": "Salud de los docentes (FOMAG)", "v": 3.73, "req": "ley ordinaria", "mix": {"L": 1.0}}, {"id": "r05", "area": "SALUD", "name": "Hospitales y programas nacionales, MinSalud y otros", "v": 2.23, "req": "decreto", "mix": {"G": 0.998, "L": 0.002}}, {"id": "r06", "area": "SALUD", "name": "Salud pública: vacunación, vigilancia epidemiológica, INS e Invima (incluye la parte del SGP)", "v": 3.62, "req": "reforma constitucional y decreto", "mix": {"C": 0.569, "G": 0.431}}, {"id": "r07", "area": "EDUCACIÓN", "name": "Giro a las regiones para colegios públicos: nómina docente y operación (SGP)", "v": 49.83, "req": "reforma constitucional", "mix": {"C": 0.996, "G": 0.004}}, {"id": "r08", "area": "EDUCACIÓN", "name": "Programa de Alimentación Escolar", "v": 3.46, "req": "decreto y reforma constitucional", "mix": {"G": 0.873, "C": 0.127}}, {"id": "r09", "area": "EDUCACIÓN", "name": "Otros de educación básica: cesantías docentes, infraestructura escolar y MinEducación", "v": 2.36, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r10", "area": "EDUCACIÓN", "name": "Universidades públicas", "v": 8.48, "req": "ley ordinaria", "mix": {"L": 0.966, "G": 0.034}}, {"id": "r11", "area": "EDUCACIÓN", "name": "Otras instituciones de educación superior, gratuidad, becas, ICETEX y residentes médicos", "v": 4.16, "req": "ley ordinaria y decreto", "mix": {"L": 0.677, "G": 0.323}}, {"id": "r12", "area": "DEFENSA Y SEGURIDAD", "name": "Ejército", "v": 14.39, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r13", "area": "DEFENSA Y SEGURIDAD", "name": "Armada", "v": 3.8, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r14", "area": "DEFENSA Y SEGURIDAD", "name": "Fuerza Aérea", "v": 3.08, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r15", "area": "DEFENSA Y SEGURIDAD", "name": "Otros de defensa: Agencia Logística, inteligencia y Ministerio", "v": 1.62, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r16", "area": "DEFENSA Y SEGURIDAD", "name": "Policía Nacional", "v": 15.96, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r17", "area": "DEFENSA Y SEGURIDAD", "name": "Esquemas de protección (UNP)", "v": 2.72, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r18", "area": "DEFENSA Y SEGURIDAD", "name": "Fondo de seguridad y convivencia ciudadana (Fonsecon) y MinInterior", "v": 0.83, "req": "ley ordinaria y decreto", "mix": {"L": 0.752, "G": 0.248}}, {"id": "r19", "area": "DEUDA PÚBLICA", "name": "Intereses de la deuda interna (TES)", "v": 49.04, "req": "contratos", "mix": {"K": 1.0}}, {"id": "r20", "area": "DEUDA PÚBLICA", "name": "Intereses de la deuda externa (bonos y créditos con la banca multilateral)", "v": 21.13, "req": "contratos", "mix": {"K": 1.0}}, {"id": "r21", "area": "DEUDA PÚBLICA", "name": "Pagos de capital de la deuda externa", "v": 17.27, "req": "contratos", "mix": {"K": 1.0}}, {"id": "r22", "area": "DEUDA PÚBLICA", "name": "Pagos de capital de la deuda interna y otras cuentas", "v": 10.34, "req": "contratos", "mix": {"K": 1.0}}, {"id": "r23", "area": "DEUDA PÚBLICA", "name": "Aportes al Fondo de Contingencias (respaldo de garantías y sentencias contra el Estado)", "v": 2.67, "req": "ley ordinaria", "mix": {"L": 1.0}, "note_after": "<b>Posibles consecuencias de no pagar la deuda.</b> Sería una cesación de pagos (default). <i>Financieras:</i> los TES pierden valor de inmediato y, como buena parte los tienen los fondos de pensiones, los bancos y otros inversionistas, la pérdida cae sobre el ahorro pensional y el capital de los bancos, que reducirían el crédito. Las cláusulas de incumplimiento cruzado harían exigible el resto de la deuda externa, y los acreedores podrían demandar y embargar bienes de la Nación en el exterior. <i>Macroeconómicas:</i> el país perdería el acceso al crédito por años; saldría capital, el peso se devaluaría, subirían la inflación y las tasas de interés para hogares y empresas, y la economía probablemente entraría en recesión. <i>Recaudo:</i> la recesión reduciría los impuestos, así que parte del ahorro se perdería. Además, el pago de capital no hace parte del déficit: dejar de pagarlo reduce lo que hay que pedir prestado, no el déficit."}, {"id": "r24", "area": "PENSIONES", "name": "Aporte de la Nación a Colpensiones para pagar mesadas", "v": 33.06, "req": "reforma constitucional", "mix": {"C": 1.0}}, {"id": "r25", "area": "PENSIONES", "name": "Asignaciones de retiro y pensiones de militares y policías", "v": 18.58, "req": "reforma constitucional", "mix": {"C": 1.0}}, {"id": "r26", "area": "PENSIONES", "name": "Pensiones de exfuncionarios de entidades liquidadas (FOPEP)", "v": 15.59, "req": "reforma constitucional", "mix": {"C": 1.0}}, {"id": "r27", "area": "PENSIONES", "name": "Pensiones de los docentes (FOMAG)", "v": 13.96, "req": "reforma constitucional", "mix": {"C": 1.0}}, {"id": "r28", "area": "PENSIONES", "name": "Demás pensiones a cargo de la Nación: pasivos territoriales, universidades, Congreso y otras", "v": 7.88, "req": "reforma constitucional y ley ordinaria", "mix": {"C": 0.8, "L": 0.177, "G": 0.023}}, {"id": "r29", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "ICBF: primera infancia, nutrición y protección de niños", "v": 10.69, "req": "ley ordinaria y decreto", "mix": {"L": 0.837, "G": 0.163}}, {"id": "r30", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "Transferencias monetarias (Renta Ciudadana y otras)", "v": 7.62, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r31", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "Otros programas de inclusión social (Prosperidad Social)", "v": 0.77, "req": "decreto y ley ordinaria", "mix": {"G": 0.681, "L": 0.319}}, {"id": "r32", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "Atención y reparación a víctimas del conflicto", "v": 4.64, "req": "ley ordinaria", "mix": {"L": 0.924, "G": 0.076}}, {"id": "r33", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "SENA", "v": 5.49, "req": "ley ordinaria y decreto", "mix": {"L": 0.854, "G": 0.146}}, {"id": "r34", "area": "PROTECCIÓN SOCIAL Y TRABAJO", "name": "Empleo, intermediación e inspección del trabajo", "v": 0.86, "req": "decreto y ley ordinaria", "mix": {"G": 0.689, "L": 0.311}}, {"id": "r35", "area": "ENERGÍA Y MINAS", "name": "Subsidios de energía y gas a estratos 1, 2 y 3", "v": 7.49, "req": "ley ordinaria", "mix": {"L": 1.0}}, {"id": "r36", "area": "ENERGÍA Y MINAS", "name": "Expansión de energía y gas (zonas no interconectadas, MinMinas)", "v": 1.81, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r37", "area": "ENERGÍA Y MINAS", "name": "Funcionamiento e inversión de la ANM, la ANH, la UPME y MinMinas (minería e hidrocarburos)", "v": 1.17, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r38", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Agua potable y saneamiento (incluye el giro del SGP a las regiones)", "v": 5.82, "req": "reforma constitucional y decreto", "mix": {"C": 0.783, "G": 0.217}}, {"id": "r39", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Vivienda: subsidios y coberturas", "v": 2.48, "req": "decreto y contratos", "mix": {"G": 0.538, "K": 0.462}}, {"id": "r40", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Concesiones viales y aeroportuarias (ANI)", "v": 7.87, "req": "contratos", "mix": {"K": 0.948, "G": 0.052}}, {"id": "r41", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Vías nacionales (INVÍAS)", "v": 5.41, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r42", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Aeropuertos y navegación aérea (Aerocivil)", "v": 3.03, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r43", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Cofinanciación de metros y TransMilenio", "v": 2.98, "req": "contratos", "mix": {"K": 1.0}}, {"id": "r44", "area": "AGUA, VIVIENDA Y TRANSPORTE", "name": "Otros de transporte: Satena, río Magdalena, MinTransporte, regulación y seguridad vial", "v": 2.33, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r45", "area": "MUNICIPIOS Y DEPARTAMENTOS", "name": "Libre inversión de los municipios (propósito general del SGP)", "v": 9.79, "req": "reforma constitucional", "mix": {"C": 1.0}}, {"id": "r46", "area": "MUNICIPIOS Y DEPARTAMENTOS", "name": "Resguardos indígenas, municipios ribereños y otras transferencias territoriales", "v": 2.31, "req": "ley ordinaria, reforma constitucional y decreto", "mix": {"L": 0.616, "C": 0.228, "G": 0.156}}, {"id": "r47", "area": "JUSTICIA Y PAZ", "name": "Rama Judicial: jueces y tribunales", "v": 10.91, "req": "órganos autónomos y decreto", "mix": {"A": 0.867, "G": 0.133}}, {"id": "r48", "area": "JUSTICIA Y PAZ", "name": "MinJusticia, justicia penal militar y funciones judiciales de las superintendencias", "v": 0.55, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r49", "area": "JUSTICIA Y PAZ", "name": "Fiscalía y Medicina Legal", "v": 7.2, "req": "órganos autónomos", "mix": {"A": 0.985, "G": 0.015}}, {"id": "r50", "area": "JUSTICIA Y PAZ", "name": "Cárceles (INPEC y USPEC)", "v": 4.26, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r51", "area": "JUSTICIA Y PAZ", "name": "JEP, Unidad de Búsqueda y Centro de Memoria Histórica", "v": 1.03, "req": "órganos autónomos y reforma constitucional", "mix": {"A": 0.718, "C": 0.199, "G": 0.083}}, {"id": "r52", "area": "JUSTICIA Y PAZ", "name": "Acuerdo de Paz y reincorporación", "v": 1.79, "req": "reforma constitucional y decreto", "mix": {"C": 0.85, "G": 0.15}}, {"id": "r53", "area": "INSTITUCIONES DEL ESTADO", "name": "DIAN y control de contribuciones parafiscales", "v": 4.04, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r54", "area": "INSTITUCIONES DEL ESTADO", "name": "Registraduría, CNE y elecciones", "v": 7.0, "req": "órganos autónomos", "mix": {"A": 0.888, "L": 0.075, "G": 0.037}}, {"id": "r55", "area": "INSTITUCIONES DEL ESTADO", "name": "Contraloría, Procuraduría y Defensoría", "v": 4.9, "req": "órganos autónomos y decreto", "mix": {"A": 0.867, "G": 0.133}}, {"id": "r56", "area": "INSTITUCIONES DEL ESTADO", "name": "Cancillería, consulados y Migración Colombia", "v": 2.0, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r57", "area": "INSTITUCIONES DEL ESTADO", "name": "Presidencia, DNP, MinHacienda, Función Pública y defensa jurídica", "v": 1.87, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r58", "area": "INSTITUCIONES DEL ESTADO", "name": "Superintendencias y comisiones de regulación", "v": 1.87, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r59", "area": "INSTITUCIONES DEL ESTADO", "name": "DANE, IGAC y Notariado y Registro", "v": 1.74, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r60", "area": "INSTITUCIONES DEL ESTADO", "name": "Derechos humanos, participación, consulta previa y grupos poblacionales", "v": 0.73, "req": "decreto y ley ordinaria", "mix": {"G": 0.828, "L": 0.105, "A": 0.067}}, {"id": "r61", "area": "INSTITUCIONES DEL ESTADO", "name": "Congreso", "v": 1.34, "req": "órganos autónomos", "mix": {"A": 0.971, "G": 0.029}}, {"id": "r62", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Apoyo a productores y empresas: crédito, asistencia técnica e infraestructura productiva", "v": 2.59, "req": "decreto y ley ordinaria", "mix": {"G": 0.734, "L": 0.266}}, {"id": "r63", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Tierras: acceso, formalización y restitución", "v": 1.72, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r64", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Sanidad agropecuaria y pesquera (ICA, AUNAP)", "v": 0.5, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r65", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Comercio exterior, turismo, propiedad industrial y protección al consumidor", "v": 0.77, "req": "decreto y ley ordinaria", "mix": {"G": 0.522, "L": 0.478}}, {"id": "r66", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Ambiente y cambio climático", "v": 1.7, "req": "decreto", "mix": {"G": 0.99, "L": 0.01}}, {"id": "r67", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Gestión del riesgo de desastres", "v": 1.46, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r68", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Conectividad, TIC y medios públicos", "v": 2.22, "req": "decreto y ley ordinaria", "mix": {"G": 0.857, "L": 0.143}}, {"id": "r69", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Ciencia, tecnología e innovación", "v": 1.14, "req": "ley ordinaria y decreto", "mix": {"L": 0.576, "G": 0.424}}, {"id": "r70", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Cultura", "v": 1.14, "req": "decreto y ley ordinaria", "mix": {"G": 0.884, "L": 0.116}}, {"id": "r71", "area": "CAMPO, AMBIENTE, CIENCIA Y CULTURA", "name": "Deporte", "v": 0.49, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r72", "area": "OTROS", "name": "Partidas por distribuir de MinHacienda, MinEducación y DNP (incluye la reserva para salarios)", "v": 10.61, "req": "decreto", "mix": {"G": 1.0}}, {"id": "r73", "area": "OTROS", "name": "Aportes de capital y pasivos de entidades liquidadas", "v": 1.01, "req": "contratos", "mix": {"K": 1.0}}], "total": 544.09, "exc": 2.88};
+var TARGET = 46.4;
+var ORDER = ['G','L','E','C','A','K'];
+var LBL = {G:'Decreto', L:'Ley ordinaria', E:'Ley estatutaria', C:'Reforma constitucional', A:'Órganos autónomos', K:'Contratos'};
+var COL = {}; ORDER.forEach(function(k){ COL[k] = getComputedStyle(document.documentElement).getPropertyValue('--'+k).trim(); });
+var pct = {}; DATA.items.forEach(function(it){ pct[it.id] = 0; });
+function f1(v){ return v.toFixed(1).replace('.', ','); }
+
+// leyenda
+document.getElementById('legend').innerHTML = ORDER.map(function(k){ return '<span><i class="sw" style="background:'+COL[k]+'"></i>'+LBL[k]+'</span>'; }).join('');
+document.getElementById('menusub').textContent = f1(DATA.total) + ' billones en ' + DATA.items.length + ' rubros. Recorte cada uno completo o en parte.';
+
+// menú
+var menu = document.getElementById('menu'), area = null, box = null, canv = {};
+DATA.items.forEach(function(it){
+  if (it.area !== area) { area = it.area; box = document.createElement('div'); box.className = 'area';
+    box.innerHTML = '<div class="ah">' + area + '</div>'; menu.appendChild(box); }
+  var d = document.createElement('div'); d.className = 'it';
+  d.innerHTML = '<div class="t"><b>' + f1(it.v) + '</b> ' + it.name + '</div>' +
+    '<div class="req">Requiere: ' + it.req + '</div>' +
+    '<div class="ctl"><input type="range" min="0" max="100" step="5" value="0" aria-label="Porcentaje de recorte"><span class="cut">Sin recorte</span></div>' +
+    '<div class="quick"><button data-p="0">0 %</button><button data-p="10">10 %</button><button data-p="25">25 %</button><button data-p="50">50 %</button><button data-p="100">Todo</button></div>';
+  var cv = document.createElement('canvas'); d.appendChild(cv); canv[it.id] = cv;
+  box.appendChild(d);
+  if (it.note_after) { var n = document.createElement('div'); n.className = 'note'; n.innerHTML = it.note_after; box.appendChild(n); }
+  var r = d.querySelector('input'), lab = d.querySelector('.cut');
+  function set(p){ pct[it.id] = p; r.value = p; lab.textContent = p ? (p + ' % = ' + f1(it.v * p / 100) + ' billones') : 'Sin recorte'; lab.className = 'cut' + (p ? ' on' : ''); drawItem(it); update(); }
+  r.addEventListener('input', function(){ set(+r.value); });
+  d.querySelectorAll('.quick button').forEach(function(b){ b.addEventListener('click', function(){ set(+b.dataset.p); }); });
+  drawItem(it);
+});
+
+function domReq(it){ var best = null, bv = -1; for (var k in it.mix) if (it.mix[k] > bv && COL[k]) { bv = it.mix[k]; best = k; } return best || 'G'; }
+function drawItem(it){
+  var cv = canv[it.id], n = Math.max(1, Math.round(it.v * 10)), cols = 50, s = 6, rows = Math.ceil(n / cols);
+  var dpr = window.devicePixelRatio || 1, W = cols * s + 1, H = rows * s + 1;
+  cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px';
+  var c = cv.getContext('2d'); c.scale(dpr, dpr); c.clearRect(0, 0, W, H);
+  var filled = Math.round(n * pct[it.id] / 100), col = COL[domReq(it)];
+  for (var i = 0; i < n; i++) { var x = (i % cols) * s + .5, y = Math.floor(i / cols) * s + .5;
+    if (i < filled) { c.fillStyle = col; c.fillRect(x, y, s, s); }
+    c.strokeStyle = (i % 10 === 9 || i === n - 1) ? '#999' : '#d0d0d0'; c.lineWidth = .5; c.strokeRect(x, y, s, s); }
+}
+
+function totals(){
+  var t = 0, by = {}; ORDER.forEach(function(k){ by[k] = 0; });
+  DATA.items.forEach(function(it){ var cut = it.v * pct[it.id] / 100; t += cut;
+    for (var k in it.mix) { if (by[k] === undefined) by[k] = 0; by[k] += cut * it.mix[k]; } });
+  return {t: t, by: by};
+}
+var big = document.getElementById('big');
+function drawBig(by, t){ drawGrid(big, by, t); }
+function drawGrid(big, by, t){
+  var cols = 58, n = Math.max(464, Math.ceil(t * 10)), rows = Math.ceil(n / cols);
+  var avail = Math.min(document.querySelector('.wrap').clientWidth - 4, 1000), s = Math.floor(avail / cols);
+  s = Math.max(6, Math.min(s, 16));
+  var dpr = window.devicePixelRatio || 1, W = cols * s + 2, H = rows * s + 2;
+  big.width = W * dpr; big.height = H * dpr; big.style.width = W + 'px'; big.style.height = H + 'px';
+  var c = big.getContext('2d'); c.scale(dpr, dpr); c.clearRect(0, 0, W, H);
+  var seq = []; ORDER.forEach(function(k){ var m = Math.round(by[k] * 10); for (var i = 0; i < m; i++) seq.push(COL[k]); });
+  for (var i = 0; i < n; i++) { var x = (i % cols) * s + 1, y = Math.floor(i / cols) * s + 1;
+    if (i < seq.length) { c.fillStyle = seq[i]; c.fillRect(x, y, s, s); }
+    if (i >= 464) { c.fillStyle = 'rgba(255,255,255,.55)'; c.fillRect(x, y, s, s); }
+    c.strokeStyle = '#c4c4c4'; c.lineWidth = .5; c.strokeRect(x, y, s, s); }
+  // borde de la meta
+  c.strokeStyle = '#111'; c.lineWidth = 1.5;
+  var full = Math.floor(464 / cols), rem = 464 % cols;
+  c.beginPath(); c.moveTo(1, 1); c.lineTo(cols * s + 1, 1); c.lineTo(cols * s + 1, full * s + 1);
+  c.lineTo(rem * s + 1, full * s + 1); c.lineTo(rem * s + 1, (full + 1) * s + 1); c.lineTo(1, (full + 1) * s + 1); c.closePath(); c.stroke();
+}
+function update(){
+  var r = totals(), t = r.t;
+  document.getElementById('tot').textContent = f1(t) + ' de 46,4 billones';
+  document.getElementById('status').textContent = t < TARGET - 0.05 ? 'Le faltan ' + f1(TARGET - t) + ' billones.' :
+     (t > TARGET + 0.05 ? '¡Meta cumplida! Se pasó por ' + f1(t - TARGET) + ' billones.' : '¡Meta cumplida!');
+  drawBig(r.by, t);
+  var tot = Math.max(t, 1e-9);
+  document.getElementById('sumtxt').textContent = 'Usted recortó ' + f1(t) + ' billones' + (t >= TARGET - 0.05 ? ', y cumplió la meta.' : ': le faltan ' + f1(TARGET - t) + ' para la meta.') + ' Esto es lo que exige su plan:';
+  document.getElementById('byreq').innerHTML = ORDER.map(function(k){ var v = r.by[k] || 0;
+    return '<span><i class="sw" style="background:' + COL[k] + '"></i> ' + LBL[k] + '</span><span class="bar" style="background:' + COL[k] + ';width:' + (t ? 100 * v / tot : 0) + '%"></span><span>' + f1(v) + ' (' + Math.round(t ? 100 * v / tot : 0) + ' %)</span>'; }).join('');
+}
+window.addEventListener('resize', update);
+update();
+
+// envío (una sola vez) y botones
+var sent = false, lastRes = null, sending = false, queue = [];
+function ensureSent(cb) {
+  if (sent) { cb(lastRes); return; }
+  queue.push(cb); if (sending) return;
+  var r = totals(), msg = document.getElementById('msg');
+  if (r.t < 0.05) { queue = []; msg.textContent = 'Primero haga algún recorte.'; return; }
+  var payload = { grupo: '', comentario: '', total: +r.t.toFixed(3), req: {}, cortes: {} };
+  ORDER.forEach(function(k){ payload.req[k] = +(r.by[k] || 0).toFixed(3); });
+  DATA.items.forEach(function(it){ payload.cortes[it.id] = pct[it.id]; });
+  sending = true; msg.textContent = 'Guardando su plan…';
+  var ok = function(res){ sending = false; sent = true; lastRes = res; msg.textContent = 'Su plan quedó registrado. Si cambia sus recortes, la imagen para compartir se actualiza, pero el registro no.';
+    computeCons(res); var q = queue; queue = []; q.forEach(function(f){ f(res); }); };
+  var fail = function(e){ sending = false; queue = []; msg.textContent = 'No se pudo guardar. Intente de nuevo. ' + (e && e.message ? e.message : ''); };
+  if (window.google && google.script && google.script.run) google.script.run.withSuccessHandler(ok).withFailureHandler(fail).guardar(payload);
+  else if (window.ENDPOINT) fetch(ENDPOINT, {method: 'POST', body: JSON.stringify(payload)}).then(function (r) { return r.json(); }).then(ok).catch(fail);
+  else fail({message: '(vista previa sin conexión al registro)'});
+}
+function showShare() { var sh = document.getElementById('share'); sh.style.display = 'block'; sh.scrollIntoView({behavior: 'smooth'}); }
+document.getElementById('btn').addEventListener('click', function(){ ensureSent(function(res){ showResults(res); }); });
+document.getElementById('btnsh').addEventListener('click', function(){ ensureSent(function(){ showShare(); }); });
+
+// resultados consolidados
+function consRows(res) {
+  var byId = {}; DATA.items.forEach(function(it){ byId[it.id] = it; });
+  var rows = res.items.filter(function(r){ return r.k > 0; }).map(function(r){ return {it: byId[r.id], share: r.k / res.n, avg: r.s / r.k}; });
+  rows.sort(function(a, b){ return b.share - a.share || b.avg - a.avg; });
+  var acc = 0; rows.forEach(function(r){ var full = r.it.v * r.avg / 100; r.cut = acc >= TARGET ? 0 : Math.min(full, TARGET - acc); acc += r.cut; r.acc = acc; });
+  return rows;
+}
+function computeCons(res) {
+  CONS = {}; NRESP = res && res.n || 0; if (!NRESP) return;
+  consRows(res).forEach(function(r){ if (r.cut) CONS[r.it.id] = r.cut; });
+}
+function showResults(res){
+  if (!res || !res.n) return;
+  var byId = {}; DATA.items.forEach(function(it){ byId[it.id] = it; });
+  var rows = res.items.filter(function(r){ return r.k > 0; }).map(function(r){
+    var it = byId[r.id]; return {it: it, share: r.k / res.n, avg: r.s / r.k}; });
+  rows.sort(function(a, b){ return b.share - a.share || b.avg - a.avg; });
+  var acc = 0, by = {}; ORDER.forEach(function(k){ by[k] = 0; }); CONS = {}; NRESP = res.n;
+  var html = '<h3>El plan consolidado</h3><p style="font-size:14px;line-height:1.45">' + res.n + (res.n === 1 ? ' persona ha' : ' personas han') +
+    ' enviado su plan. El plan consolidado toma primero los recortes más populares (los que más personas escogieron) y sigue con los menos populares hasta cumplir la meta de 46,4 billones. ' +
+    'De cada rubro recorta el porcentaje promedio que propusieron quienes lo recortaron.</p>' +
+    '<div id="restot" style="font-size:16px;font-weight:700;margin-top:8px"></div><canvas id="bigres"></canvas><div class="legend">' + document.getElementById('legend').innerHTML + '</div>' +
+    '<table><tr><th>Rubro</th><th>Lo recortan</th><th>Recorte promedio</th><th>Se recorta</th><th>Acumulado</th></tr>';
+  rows.forEach(function(r){
+    var full = r.it.v * r.avg / 100, cut = acc >= TARGET ? 0 : Math.min(full, TARGET - acc);
+    acc += cut; if (cut) CONS[r.it.id] = cut; for (var k in r.it.mix) { if (by[k] === undefined) by[k] = 0; by[k] += cut * r.it.mix[k]; }
+    html += '<tr' + (cut ? '' : ' class="out"') + '><td>' + r.it.name + '<div class="req">Requiere: ' + r.it.req + '</div></td><td class="n">' + Math.round(100 * r.share) + ' %</td><td class="n">' +
+      Math.round(r.avg) + ' %</td><td class="n">' + (cut ? f1(cut) : '—') + '</td><td class="n">' + (cut ? f1(acc) : '') + '</td></tr>';
+  });
+  html += '</table>';
+  var box = document.getElementById('res'); box.innerHTML = html; box.style.display = 'block';
+  document.getElementById('restot').textContent = 'El plan consolidado recorta ' + f1(acc) + ' billones' + (acc < TARGET - 0.05 ? ': aun sumando todo lo propuesto, no alcanza la meta.' : '.') +
+    ' Exige: ' + ORDER.filter(function(k){ return by[k] > 0.05; }).map(function(k){ return LBL[k].toLowerCase() + ' ' + f1(by[k]); }).join(' · ');
+  drawGrid(document.getElementById('bigres'), by, acc);
+  document.getElementById('share').style.display = 'block';
+  box.scrollIntoView({behavior: 'smooth'});
+}
+
+// compartir
+// Tarjeta para compartir. Formatos: vertical (4:5, 9:16) o apaisado/cuadrado (lado a lado).
+// plan = {t, by:{G,L,E,C,A,K}, cuts:[{name, v, pct, req}], extra:'', url:''}
+var SHARE_PAL = ['#0072B2', '#E69F00', '#009E73', '#D55E00', '#CC79A7', '#56B4E9', '#F0E442', '#332288', '#882255', '#44AA99', '#999933', '#AA4499', '#117733'];
+function drawShareCard(cv, plan, COL, LBL, ORDER, W, H) {
+  W = W || 1080; H = H || 1350;
+  var c = cv.getContext('2d'); cv.width = W; cv.height = H;
+  var f1 = function (v) { return v.toFixed(1).replace('.', ','); };
+  var RED = '#C8232C', INK = '#111', MID = '#666', SANS = '"Helvetica Neue", Arial, sans-serif', SERIF = 'Georgia, "Times New Roman", serif';
+  var PAL = plan.palette || SHARE_PAL, GREY = '#9A9A9A';
+  var vertical = H / W >= 0.95;
+  var k = vertical ? Math.min(W / 1080, H / 1350) : Math.min(W / 1600, H / 900);
+  var ox = vertical ? (W - 1080 * k) / 2 : 0;
+  var F = function (w, px, fam) { return (w ? w + ' ' : '') + Math.round(px * k) + 'px ' + (fam || SANS); };
+  var trunc = function (txt, maxw) { var t = txt; while (c.measureText(t).width > maxw && t.length > 8) t = t.slice(0, -2); return t === txt ? t : t.trim() + '…'; };
+  c.fillStyle = '#fff'; c.fillRect(0, 0, W, H);
+
+  // datos
+  var cuts = plan.cuts.slice().sort(function (a, b) { return b.v - a.v; });
+  var tot0 = cuts.reduce(function (a, r) { return a + r.v; }, 0), nMain = 0, acc0 = 0;
+  while (nMain < Math.min(cuts.length, 13) && (tot0 - acc0) > 0.05 * tot0) { acc0 += cuts[nMain].v; nMain++; }
+  if (cuts.length - nMain === 1) nMain++;
+  var main = cuts.slice(0, nMain), rest = cuts.slice(nMain), restV = rest.reduce(function (a, r) { return a + r.v; }, 0);
+  var seq = []; main.forEach(function (r, i) { for (var j = 0, m = Math.round(r.v * 10); j < m; j++) seq.push(PAL[i]); });
+  for (var j = 0, m = Math.round(restV * 10); j < m; j++) seq.push(GREY);
+  var ok = plan.t >= 46.35;
+  var headline = ok ? 'Recorté ' + f1(plan.t) + ' billones' : 'Me faltaron ' + f1(46.4 - plan.t) + ' billones';
+
+  function grid(gx, gy, s) {
+    var cols = 29, rows = 16;
+    for (var i = 0; i < cols * rows; i++) {
+      var x = gx + (i % cols) * s, y = gy + Math.floor(i / cols) * s;
+      if (i < seq.length) { c.fillStyle = seq[i]; c.fillRect(x, y, s, s); }
+      c.strokeStyle = i < seq.length ? 'rgba(255,255,255,.55)' : '#d4d4d4'; c.lineWidth = 1; c.strokeRect(x + .5, y + .5, s - 1, s - 1);
+    }
+    c.strokeStyle = INK; c.lineWidth = 3 * k; c.strokeRect(gx, gy, cols * s, rows * s);
+    c.textAlign = 'left'; c.fillStyle = MID; c.font = F('', 20);
+    c.fillText('1 casilla = 0,1 billones', gx, gy + rows * s + 28 * k);
+    if (seq.length > 464) { c.textAlign = 'right'; c.fillText('+' + f1(plan.t - 46.4) + ' por encima de la meta', gx + cols * s, gy + rows * s + 28 * k); }
+    return gy + rows * s + 28 * k;
+  }
+  function list(lx, ly, lw, nBig, rowH) {
+    c.textAlign = 'left'; c.fillStyle = INK; c.font = F('700', 28); c.fillText('Lo que recorté', lx, ly);
+    c.textAlign = 'right'; c.fillStyle = MID; c.font = F('', 19); c.fillText('billones · % del rubro', lx + lw, ly);
+    ly += 14 * k;
+    main.slice(0, nBig).forEach(function (r, i) {
+      ly += rowH;
+      c.fillStyle = PAL[i]; c.fillRect(lx, ly - 22 * k, 22 * k, 22 * k);
+      c.textAlign = 'left'; c.fillStyle = INK; c.font = F('', 23); c.fillText(trunc(r.name, lw - 230 * k), lx + 34 * k, ly - 4 * k);
+      c.fillStyle = MID; c.font = F('', 16); c.fillText(('Requiere: ' + r.req).toUpperCase(), lx + 34 * k, ly + 15 * k);
+      c.textAlign = 'right'; c.fillStyle = INK; c.font = F('700', 26); c.fillText(f1(r.v), lx + lw - 92 * k, ly - 4 * k);
+      c.fillStyle = MID; c.font = F('', 22); c.fillText(r.pct + ' %', lx + lw, ly - 4 * k);
+    });
+    var small = main.slice(nBig).map(function (r, i) { return {c: PAL[i + nBig], name: r.name, v: r.v}; });
+    if (rest.length) small.push({c: GREY, name: 'Otros ' + rest.length + ' recortes', v: restV});
+    if (small.length) {
+      ly += 22 * k; var cw = (lw - 40 * k) / 2;
+      small.forEach(function (r, i) {
+        var cx = lx + (i % 2) * (cw + 40 * k), cy = ly + 34 * k + Math.floor(i / 2) * 34 * k;
+        c.fillStyle = r.c; c.fillRect(cx, cy - 17 * k, 17 * k, 17 * k);
+        c.textAlign = 'left'; c.fillStyle = INK; c.font = F('', 20); c.fillText(trunc(r.name, cw - 90 * k), cx + 26 * k, cy - 2 * k);
+        c.textAlign = 'right'; c.font = F('700', 21); c.fillText(f1(r.v), cx + cw, cy - 2 * k);
+      });
+      ly += 34 * k * Math.ceil(small.length / 2);
+    }
+    return ly;
+  }
+  function reqs(lx, by, lw) {
+    var tot = Math.max(plan.t, 1e-9), xx = lx;
+    c.textAlign = 'left'; c.fillStyle = INK; c.font = F('700', 24); c.fillText('Lo que exige mi plan para aprobarse', lx, by);
+    ORDER.forEach(function (q) { var w = lw * (plan.by[q] || 0) / tot; if (w > 0) { c.fillStyle = COL[q]; c.fillRect(xx, by + 12 * k, w, 20 * k); xx += w; } });
+    var tx = lx, ty = by + 58 * k; c.font = F('', 19);
+    ORDER.filter(function (q) { return (plan.by[q] || 0) / tot >= 0.01; }).forEach(function (q) {
+      var txt = LBL[q] + ' ' + Math.round(100 * plan.by[q] / tot) + ' %', w = c.measureText(txt).width + 34 * k;
+      if (tx + w > lx + lw) { tx = lx; ty += 26 * k; }
+      c.fillStyle = COL[q]; c.fillRect(tx, ty - 14 * k, 15 * k, 15 * k); c.fillStyle = INK; c.fillText(txt, tx + 21 * k, ty); tx += w; });
+    return ty;
+  }
+  function footer(fh) {
+    if (plan.extra) { c.textAlign = 'center'; c.fillStyle = MID; c.font = F('italic', 24, SERIF); c.fillText(plan.extra, W / 2, H - fh - 18 * k); }
+    c.fillStyle = RED; c.fillRect(0, H - fh, W, fh);
+    c.fillStyle = '#fff'; c.textAlign = 'center'; c.font = F('700', 36);
+    c.fillText('¿Y usted qué recortaría?', W / 2, H - fh + fh * 0.46);
+    c.font = F('', 22); c.fillText(plan.url || '', W / 2, H - fh + fh * 0.8);
+  }
+
+  if (vertical) {
+    var extra = H - 1350 * k;              // espacio adicional en formatos más altos (historias)
+    var s = Math.floor(Math.min(33 * k, 22 * k + extra * 0.45 / 16));
+    var top = Math.max(0, (extra - (s - 22 * k) * 16) * 0.45);
+    c.textAlign = 'center'; c.fillStyle = INK; c.font = F('400', 60, SERIF);
+    c.fillText('Así ajusté las cuentas del Estado', W / 2, top + 92 * k);
+    c.fillStyle = MID; c.font = F('', 26);
+    c.fillText('Meta: recortar 46,4 billones del presupuesto de 2026, sin subir impuestos', W / 2, top + 134 * k);
+    c.fillStyle = ok ? INK : RED; c.font = F('700', 70); c.fillText(headline, W / 2, top + 220 * k);
+    var gx = (W - 29 * s) / 2;
+    var y = grid(gx, top + 250 * k, s);
+    var lx = ox + 80 * k, lw = 1080 * k - 160 * k;
+    y = list(lx, y + 46 * k, lw, 5, 43 * k);
+    reqs(lx, y + 54 * k, lw);
+    footer(100 * k);
+  } else {
+    // lado a lado: cuadrícula a la izquierda, detalle a la derecha
+    var fh = 90 * k, pad = 50 * k;
+    c.textAlign = 'left'; c.fillStyle = INK; c.font = F('400', 50, SERIF);
+    c.fillText('Así ajusté las cuentas del Estado', pad, 74 * k);
+    c.fillStyle = MID; c.font = F('', 22);
+    c.fillText('Meta: recortar 46,4 billones del presupuesto de 2026, sin subir impuestos', pad, 110 * k);
+    var colW = (W - 3 * pad) / 2, avail = H - fh - 200 * k;
+    var s2 = Math.floor(Math.min(colW / 29, (avail - 80 * k) / 16));
+    c.fillStyle = ok ? INK : RED; c.font = F('700', 56); c.fillText(headline, pad, 186 * k);
+    grid(pad, 216 * k, s2);
+    var rx = 2 * pad + colW, ry = 186 * k;
+    var nBig = H / W > 0.8 ? 5 : 4;
+    var ly = list(rx, ry, colW, nBig, 43 * k);
+    if (ly + 110 * k < H - fh) reqs(rx, ly + 46 * k, colW);
+    plan = Object.assign({}, plan, {extra: ''});
+    footer(fh);
+  }
+}
+
+var SITE_URL = 'https://ajuste.luiscarlosreyes.com';
+var CONS = null, NRESP = 0;
+var NETS = {
+  wa: {w: 1080, h: 1350, label: 'WhatsApp', link: true, open: function (t) { return 'https://wa.me/?text=' + encodeURIComponent(t); }},
+  ig: {w: 1080, h: 1350, label: 'Instagram', link: false},
+  st: {w: 1080, h: 1920, label: 'Historias', link: false},
+  x:  {w: 1600, h: 900,  label: 'X', link: true, open: function (t) { return 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(t); }},
+  fb: {w: 1080, h: 1350, label: 'Facebook', link: true, open: function () { return 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SITE_URL); }},
+  li: {w: 1200, h: 1200, label: 'LinkedIn', link: true, open: function () { return 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(SITE_URL); }},
+  dl: {w: 1080, h: 1350, label: 'Imagen', link: true}
+};
+function myPlan() {
+  var r = totals(), cuts = [];
+  DATA.items.forEach(function (it) { var p = pct[it.id]; if (p > 0) cuts.push({name: it.name, v: it.v * p / 100, pct: p, req: it.req}); });
+  var extra = '';
+  if (CONS && NRESP > 1) {
+    var C = 0, U = r.t, ov = 0; for (var id in CONS) C += CONS[id];
+    DATA.items.forEach(function (it) { var u = it.v * pct[it.id] / 100 / (U || 1), cc = (CONS[it.id] || 0) / (C || 1); ov += Math.min(u, cc); });
+    extra = 'Coincido en un ' + Math.round(100 * ov) + ' % con el plan consolidado de quienes han participado';
+  }
+  return {t: r.t, by: r.by, cuts: cuts, extra: extra, url: SITE_URL.replace('https://', '')};
+}
+function postText(withLink) {
+  var t = totals().t, head = t >= TARGET - 0.05 ? 'recorté ' + f1(t) + ' billones' : 'recorté ' + f1(t) + ' de los 46,4 billones';
+  return 'Así ajusté las cuentas del Estado: ' + head + ' del presupuesto de 2026, sin subir impuestos. ¿Usted qué recortaría?' + (withLink ? ' ' + SITE_URL : '');
+}
+function dataURLtoBlob(u) { var p = u.split(','), bin = atob(p[1]), n = bin.length, arr = new Uint8Array(n); while (n--) arr[n] = bin.charCodeAt(n); return new Blob([arr], {type: 'image/png'}); }
+function doShare(n) {
+  var net = NETS[n], cv = document.createElement('canvas');
+  drawShareCard(cv, myPlan(), COL, LBL, ORDER, net.w, net.h);
+  var url = cv.toDataURL('image/png'), img = document.getElementById('shimg');
+  img.src = url; img.style.display = 'block';
+  var text = postText(net.link), msg = document.getElementById('shmsg'), fname = 'ajuste-cuentas-' + n + '.png';
+  try { navigator.clipboard.writeText(text); } catch (e) {}
+  // celular: menú de compartir del teléfono con la imagen adjunta
+  var file = null; try { file = new File([dataURLtoBlob(url)], fname, {type: 'image/png'}); } catch (e) {}
+  var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (mobile && file && navigator.canShare && navigator.canShare({files: [file]})) {
+    var data = {files: [file]}; if (n !== 'ig' && n !== 'st') data.text = text;
+    navigator.share(data).then(function () { msg.textContent = '¡Listo!'; })
+      .catch(function (e) { if (e && e.name === 'AbortError') return; manual(); });
+    msg.innerHTML = 'Escoja ' + net.label + ' en el menú de su teléfono. El texto también quedó copiado por si necesita pegarlo.';
+    return;
+  }
+  manual();
+  function manual() {
+    // computador: abrir la red en el mismo clic y descargar la imagen
+    if (net.open) { try { window.open(net.open(text), '_blank', 'noopener'); } catch (e) {} }
+    try { var a = document.createElement('a'); a.href = url; a.download = fname; document.body.appendChild(a); a.click(); a.remove(); } catch (e) {}
+    var how = {
+      wa: 'Se abrió WhatsApp con el texto y el enlace. Adjunte la imagen que se acaba de descargar.',
+      ig: 'Instagram solo permite publicar desde su app: pase la imagen descargada a su celular y súbala. El texto quedó copiado (Instagram no admite enlaces en las publicaciones).',
+      st: 'Suba la imagen descargada a su historia de Instagram o a su estado de WhatsApp. En Instagram puede añadir el enlace con el sticker «Enlace».',
+      x: 'Se abrió X con el texto y el enlace. Adjunte la imagen que se acaba de descargar.',
+      fb: 'Se abrió Facebook con el enlace. Adjunte la imagen descargada y pegue el texto, que quedó copiado.',
+      li: 'Se abrió LinkedIn con el enlace. Adjunte la imagen descargada y pegue el texto, que quedó copiado.',
+      dl: 'La imagen quedó descargada y el texto, copiado.'
+    }[n];
+    msg.innerHTML = how + '<br><span style="color:#666">Si la descarga no empezó, haga clic derecho sobre la imagen (o manténgala presionada en el celular) y guárdela.</span>';
+  }
+}
+document.querySelectorAll('#share button').forEach(function (b) { b.addEventListener('click', function () { doShare(b.dataset.n); }); });
+
+// notas
+document.getElementById('notes').innerHTML = "<p><b>QUÉ EXIGE CADA RUBRO</b></p><p><b>Reglas comunes en el Congreso.</b> Las cámaras y sus comisiones solo pueden sesionar y deliberar con al menos una cuarta parte de sus miembros (quórum deliberatorio), y solo pueden decidir con la asistencia de la mayoría de sus integrantes (quórum decisorio) (art. 145). Salvo que la Constitución exija una mayoría especial, se decide por mayoría de los votos de los asistentes (art. 146). Por regla general, el voto de cada congresista es nominal y público (art. 133).</p><p><b>Decreto.</b> El Gobierno reduce o aplaza la apropiación sin pasar por el Congreso.</p><p><b>Ley ordinaria.</b> Cuatro debates: comisión y plenaria del Senado, y comisión y plenaria de la Cámara (art. 157). Deben pasar al menos ocho días entre el debate en comisión y el de plenaria, y quince entre la aprobación en una cámara y el inicio del debate en la otra (art. 160). En cada debate basta la mayoría simple: más de la mitad de los votos de los asistentes, siempre que haya quórum decisorio.</p><p><b>Ley estatutaria.</b> Los mismos cuatro debates, pero con mayoría absoluta: más de la mitad de todos los miembros de cada comisión y plenaria, no solo de los asistentes. Debe aprobarse dentro de una sola legislatura, y la Corte Constitucional revisa el proyecto antes de que se convierta en ley (art. 153).</p><p><b>Reforma constitucional (acto legislativo).</b> Ocho debates, en dos períodos ordinarios consecutivos. En el primer período se aprueba con la mayoría de los asistentes; en el segundo, con la mayoría de los miembros de cada cámara, y solo pueden debatirse iniciativas presentadas en el primero (art. 375). Si la reforma toca los derechos fundamentales del capítulo 1 del título II, debe ir a referendo si lo pide el 5 % del censo electoral dentro de los seis meses siguientes (art. 377).</p><p><b>Advertencia: sustitución de la Constitución.</b> El Congreso puede reformar la Constitución, pero no sustituirla: no puede reemplazar uno de sus elementos esenciales por otro opuesto (Corte Constitucional, sentencia C-551 de 2003 y posteriores). Si la Corte concluye que suprimir o vaciar derechos fundamentales como la salud, o pilares como el Estado social de derecho, equivale a sustituirla, tumbaría el acto legislativo. En ese caso se necesitaría una Asamblea Constituyente: una ley aprobada por la mayoría de los miembros de ambas cámaras, una votación popular en la que al menos una tercera parte del censo electoral apruebe convocarla y la elección de sus miembros por voto directo, en una jornada distinta de cualquier otra elección (art. 376).</p><p><b>Órganos autónomos.</b> Rama Judicial, Fiscalía, Registraduría, Congreso y organismos de control: su presupuesto lo fija la ley de presupuesto; recortarlo sin su acuerdo exige una ley y respetar su autonomía.</p><p><b>Contratos.</b> Renegociar o incumplir con acreedores y contratistas; incumplir expone a demandas, indemnizaciones y, en la deuda, al default.</p><p><b>POR QUÉ EL MENÚ SUMA 544,1 Y NO 547,0 BILLONES</b> La ANH y otras entidades presupuestan como gasto 2,9 billones de excedentes que le devuelven a la Nación. Para la Nación son un ingreso, no un gasto: recortarlos no ahorraría nada, así que no están en el menú.</p><p><b>ELIMINAR NO ES LO MISMO QUE RECORTAR</b> La línea «Requiere» indica lo que se necesita para recortar el rubro. Suprimirlo del todo puede exigir más: las Fuerzas Militares, la Policía, la Rama Judicial, la Fiscalía, la Registraduría, el Congreso y los organismos de control existen por mandato de la Constitución.</p><p><b>PARA DISCUTIR</b> ¿Cuánto de su plan puede hacer el Gobierno por decreto? ¿Cuánto necesita al Congreso, una reforma constitucional o a los acreedores?</p><p><b>POR QUÉ EL PRESUPUESTO DE 2026</b> El de 2027 ya fue aprobado, por 634,9 billones, pero aún no tiene decreto de liquidación, así que todavía no se conoce el detalle de sus rubros.</p><p>Artículos citados: Constitución Política de 1991.</p><p>Inspirado en «Get a Pencil. You’re Tackling the Deficit», de David Leonhardt y Bill Marsh (The New York Times, 2010): <a target=\"_blank\" href=\"https://archive.nytimes.com/www.nytimes.com/interactive/2010/11/13/weekinreview/deficits-graphic.html?eafs_enabled=false\">https://archive.nytimes.com/www.nytimes.com/interactive/2010/11/13/weekinreview/deficits-graphic.html?eafs_enabled=false</a></p>";
+</script>
+</body>
+</html>
