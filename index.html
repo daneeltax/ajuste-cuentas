@@ -80,7 +80,7 @@ textarea{height:80px}
 <body>
 <div class="wrap">
 <h1>Ajuste las cuentas del Estado</h1>
-<div class="pdf"><a href="https://drive.google.com/file/d/1_6n_gVJNQQsw9Sirl-TXMIOEjZGAOSb4/view" target="_blank" rel="noopener">Descargar la versión en PDF para imprimir</a></div>
+<div class="pdf"><a href="https://drive.google.com/file/d/1_6n_gVJNQQsw9Sirl-TXMIOEjZGAOSb4/view" target="_blank" rel="noopener">Descargar la versión en PDF para imprimir</a> · <a href="#" id="vertop">Ver lo que recortan los demás</a></div>
 <div class="steps">
  <div class="step"><div class="num">1</div><div>Intente recortar <b class="s">46,4 billones</b> del presupuesto de 2026. ¿Por qué esa cifra? Es el ajuste que el Gobierno estima necesario (2,35 % del PIB), entre impuestos y menor gasto. Aquí debe lograrlo <i>solo con recortes</i>. Cada casilla (□) de la cuadrícula grande representa <b class="s">0,1 billones</b> (100.000 millones). Su tarea es llenar esas casillas escogiendo del menú.</div></div>
  <div class="step"><div class="num">2</div><div>Abajo está el menú para tapar este hueco: todo el presupuesto de 2026, rubro por rubro. Puede recortar un rubro completo o solo una parte: mueva el control de cada rubro. Cada rubro dice <b class="s">qué se necesita para recortarlo</b>: un decreto, una ley ordinaria o una reforma constitucional, entre otros.</div></div>
@@ -227,7 +227,18 @@ function ensureSent(cb) {
   else fail({message: '(vista previa sin conexión al registro)'});
 }
 function showShare() { var sh = document.getElementById('share'); sh.style.display = 'block'; sh.scrollIntoView({behavior: 'smooth'}); }
-document.getElementById('btn').addEventListener('click', function(){ ensureSent(function(res){ showResults(res); }); });
+function verResultados() {
+  if (sent) { showResults(lastRes); return; }
+  if (totals().t >= 0.05) { ensureSent(function(res){ showResults(res); }); return; }
+  var msg = document.getElementById('msg'); msg.textContent = 'Cargando los resultados…';
+  var ok = function(res){ msg.textContent = 'Usted todavía no ha enviado un plan. Si hace sus recortes y vuelve a pulsar «Ver los resultados de los demás», el suyo se suma.'; computeCons(res); showResults(res); };
+  var fail = function(e){ msg.textContent = 'No se pudieron cargar los resultados. Intente de nuevo. ' + (e && e.message ? e.message : ''); };
+  if (window.google && google.script && google.script.run) google.script.run.withSuccessHandler(ok).withFailureHandler(fail).guardar({ver: true});
+  else if (window.ENDPOINT) fetch(ENDPOINT, {method: 'POST', body: JSON.stringify({ver: true})}).then(function (r) { return r.json(); }).then(ok).catch(fail);
+  else fail({message: '(vista previa sin conexión al registro)'});
+}
+document.getElementById('btn').addEventListener('click', verResultados);
+document.getElementById('vertop').addEventListener('click', function(ev){ ev.preventDefault(); verResultados(); });
 document.getElementById('btnsh').addEventListener('click', function(){ ensureSent(function(){ showShare(); }); });
 
 // resultados consolidados
@@ -265,7 +276,7 @@ function showResults(res){
   document.getElementById('restot').textContent = 'El plan consolidado recorta ' + f1(acc) + ' billones' + (acc < TARGET - 0.05 ? ': aun sumando todo lo propuesto, no alcanza la meta.' : '.') +
     ' Exige: ' + ORDER.filter(function(k){ return by[k] > 0.05; }).map(function(k){ return LBL[k].toLowerCase() + ' ' + f1(by[k]); }).join(' · ');
   drawGrid(document.getElementById('bigres'), by, acc);
-  document.getElementById('share').style.display = 'block';
+  if (sent) document.getElementById('share').style.display = 'block';
   box.scrollIntoView({behavior: 'smooth'});
 }
 
